@@ -54,5 +54,5 @@ int main() {
 	printf("\nCarta 1:\nEstado: %c\nCódigo: %s\nCidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nPontos Turísticos: %d\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pontosTuristicos1);
 	printf("\nCarta 2:\nEstado: %c\nCódigo: %s\nCidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nPontos Turísticos: %d\n\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pontosTuristicos2);
 
-  return 0;
+	return 0;
 }
