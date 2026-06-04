@@ -5,23 +5,25 @@ int main() {
 	char estado1; // Estado: Uma letra de 'A' a 'H' (representando um dos oito estados).
 	char codigo1[4]; // Código da Carta: A letra do estado seguida de um número de 01 a 04 (ex: A01, B03).
 	char cidade1[21]; // O nome da cidade.
-	int populacao1; // O número de habitantes da cidade.
+	unsigned long int populacao1; // O número de habitantes da cidade.
 	float area1; // Área (em km²): A área da cidade em quilômetros quadrados.
 	float pib1; // O Produto Interno Bruto da cidade.
 	int pontosTuristicos1; // A quantidade de pontos turísticos na cidade.
 	float densidadeP1; // A densidade populacional da cidade.
 	float pibPerCapita1; // O PIB per capita da cidade.
+	float superPoder1; // O super poder, soma de todos atributos + densidade invertida.
 
 	// Dados da carta 2
 	char estado2; // Estado: Uma letra de 'A' a 'H' (representando um dos oito estados).
 	char codigo2[4]; // Código da Carta: A letra do estado seguida de um número de 01 a 04 (ex: A01, B03).
 	char cidade2[21]; // O nome da cidade.
-	int populacao2; // O número de habitantes da cidade.
+	unsigned long int populacao2; // O número de habitantes da cidade.
 	float area2; // Área (em km²): A área da cidade em quilômetros quadrados.
 	float pib2; // O Produto Interno Bruto da cidade.
 	int pontosTuristicos2; // A quantidade de pontos turísticos na cidade.
 	float densidadeP2; // A densidade populacional da cidade.
 	float pibPerCapita2; // O PIB per capita da cidade.
+	float superPoder2; // O super poder, soma de todos atributos + densidade invertida.
 
 	// Coleta de dados da carta 1
 	printf("Olá jogador! Por favor informe o estado da carta 1 (uma letra de A-H):\n");
@@ -59,6 +61,10 @@ int main() {
 	densidadeP1 = populacao1/area1;
 	densidadeP2 = populacao2/area2;
 
+	// Calculo de superpoder, soma todos atributos + densidade invertida 
+	superPoder1 = (float) populacao1 + area1 + (pib1 * 1e9) + (float) pontosTuristicos1 + pibPerCapita1 + (1/densidadeP1);
+	superPoder2 = (float) populacao2 + area2 + (pib2 * 1e9) + (float) pontosTuristicos2 + pibPerCapita2 + (1/densidadeP2);
+
 	// Cálculo da densidade populacional e PIB per capita, multiplica o PIB por 1e9 para ficar no formato de bilhão
 	pibPerCapita1 = (pib1*1e9) / (float) populacao1;
 	pibPerCapita2 = (pib2*1e9) / (float) populacao2;
@@ -73,5 +79,53 @@ int main() {
 		estado2, codigo2, cidade2, populacao2, area2, pib2, pontosTuristicos2, densidadeP2, pibPerCapita2
 	);
 
+	if (populacao1 > populacao2) {
+		printf("\nPopulação: Carta 1 venceu (%d):\n",populacao1 > populacao2);
+	}
+	else {
+		printf("\nPopulação: Carta 2 venceu (%d):\n",populacao1 > populacao2);
+	}
+
+	if (area1 > area2) {
+		printf("Área: Carta 1 venceu (%d):\n",area1 > area2);
+	}
+	else {
+		printf("Área: Carta 2 venceu (%d):\n",area1 > area2);
+	}
+
+	if (pib1 > pib2) {
+		printf("PIB: Carta 1 venceu (%d):\n",pib1 > pib2);
+	}
+	else {
+		printf("PIB: Carta 2 venceu (%d):\n",pib1 > pib2);
+	}
+
+	if (pontosTuristicos1 > pontosTuristicos2) {
+		printf("Pontos Turísticos: Carta 1 venceu (%d):\n",pontosTuristicos1 > pontosTuristicos2);
+	}
+	else {
+		printf("Pontos Turísticos: Carta 2 venceu (%d):\n",pontosTuristicos1 > pontosTuristicos2);
+	}
+
+	if (densidadeP1 < densidadeP2) {
+		printf("Densidade Populacional: Carta 1 venceu (%d):\n",densidadeP1 < densidadeP2);
+	}
+	else {
+		printf("Densidade Populacional: Carta 2 venceu (%d):\n",densidadeP1 < densidadeP2);
+	}
+
+	if (pibPerCapita1 > pibPerCapita2) {
+		printf("PIB per Capita: Carta 1 venceu (%d):\n",pibPerCapita1 > pibPerCapita2);
+	}
+	else {
+		printf("PIB per Capita: Carta 2 venceu (%d):\n",pibPerCapita1 > pibPerCapita2);
+	}
+
+	if (superPoder1 > superPoder2) {
+		printf("Super Poder: Carta 1 venceu (%d):\n",superPoder1 > superPoder2);
+	}
+	else {
+		printf("Super Poder: Carta 2 venceu (%d):\n",superPoder1 > superPoder2);
+	}
 	return 0;
 }
